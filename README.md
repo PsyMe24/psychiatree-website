@@ -1,2 +1,1257 @@
+[psychiatree-privacy-forms (2).html](https://github.com/user-attachments/files/29933469/psychiatree-privacy-forms.2.html)
 # psychiatree-website
 PsychiaTree initial website
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy & Patient Forms — PsychiaTree</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #5a7a5a;
+    --sage-light: #8aab8a;
+    --sage-pale: #c8dbc8;
+    --sage-mist: #eaf2ea;
+    --cream: #f9f5ee;
+    --cream-dark: #f0e9dc;
+    --bark: #5c4a30;
+    --bark-light: #8c7256;
+    --soil: #3a2d1e;
+    --warm-white: #fdfaf5;
+    --gold: #c9a84c;
+    --gold-light: #e8cb84;
+    --red: #c0392b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--soil);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 60px;
+    background: rgba(253,250,245,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(90,122,90,0.12);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 600; color: var(--sage);
+    text-decoration: none; display: flex; align-items: center; gap: 8px;
+  }
+  .nav-back {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.82rem; font-weight: 500; color: var(--bark-light);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--sage); }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 140px 80px 60px;
+    background: var(--cream);
+    border-bottom: 1px solid rgba(90,122,90,0.1);
+  }
+  .page-header-inner {
+    max-width: 900px;
+  }
+  .page-eyebrow {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--sage-light); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .page-eyebrow::before { content:''; width:32px; height:1px; background:var(--sage-light); }
+  .page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 300; color: var(--soil); line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .page-title em { font-style: italic; color: var(--sage); }
+  .page-sub {
+    font-size: 0.95rem; color: var(--bark-light); font-weight: 300; line-height: 1.7;
+    max-width: 640px; margin-bottom: 28px;
+  }
+  .effective-date {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--sage-mist); border: 1px solid var(--sage-pale);
+    color: var(--sage); padding: 8px 16px; border-radius: 8px;
+    font-size: 0.8rem; font-weight: 500;
+  }
+
+  /* LAYOUT */
+  .page-body {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 0;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 80px 100px;
+  }
+
+  /* SIDEBAR TOC */
+  .toc {
+    position: sticky;
+    top: 90px;
+    align-self: start;
+    padding-right: 40px;
+    border-right: 1px solid rgba(90,122,90,0.12);
+  }
+  .toc-label {
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--sage-light); margin-bottom: 14px;
+  }
+  .toc-list { list-style: none; }
+  .toc-list li { margin-bottom: 4px; }
+  .toc-list a {
+    font-size: 0.8rem; color: var(--bark-light); text-decoration: none;
+    font-weight: 400; line-height: 1.5; display: block;
+    padding: 5px 10px; border-radius: 6px; transition: all 0.2s;
+    border-left: 2px solid transparent;
+  }
+  .toc-list a:hover { color: var(--sage); background: var(--sage-mist); border-left-color: var(--sage); }
+  .toc-list .toc-group {
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--sage-light);
+    padding: 14px 10px 4px; display: block;
+  }
+
+  /* CONTENT */
+  .content { padding-left: 56px; }
+
+  /* SECTION BLOCKS */
+  .doc-section {
+    margin-bottom: 72px;
+    padding-bottom: 72px;
+    border-bottom: 1px solid rgba(90,122,90,0.1);
+  }
+  .doc-section:last-child { border-bottom: none; }
+
+  .section-eyebrow {
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--sage-light); margin-bottom: 10px;
+  }
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 400; color: var(--soil);
+    margin-bottom: 8px; line-height: 1.2;
+  }
+  .section-heading em { font-style: italic; color: var(--sage); }
+  .section-divider { width: 48px; height: 2px; background: var(--gold); margin: 16px 0 24px; }
+
+  .doc-text {
+    font-size: 0.9rem; line-height: 1.85; color: var(--bark-light);
+    font-weight: 300; margin-bottom: 16px;
+  }
+  .doc-text strong { font-weight: 500; color: var(--bark); }
+  .doc-text a { color: var(--sage); text-decoration: underline; }
+
+  .doc-subheading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 600; color: var(--soil);
+    margin: 28px 0 10px;
+  }
+
+  .doc-list {
+    list-style: none; margin: 0 0 16px; padding: 0;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .doc-list li {
+    font-size: 0.88rem; color: var(--bark-light); font-weight: 300;
+    line-height: 1.65; padding-left: 20px; position: relative;
+  }
+  .doc-list li::before {
+    content: '›'; position: absolute; left: 0;
+    color: var(--sage); font-weight: 500;
+  }
+
+  .info-box {
+    background: var(--sage-mist); border: 1px solid var(--sage-pale);
+    border-left: 4px solid var(--sage);
+    border-radius: 10px; padding: 18px 20px; margin: 20px 0;
+  }
+  .info-box-title { font-weight: 500; font-size: 0.88rem; color: var(--sage); margin-bottom: 6px; }
+  .info-box p { font-size: 0.83rem; color: var(--bark); font-weight: 300; line-height: 1.7; }
+
+  .warn-box {
+    background: #fef9ec; border: 1px solid #f0d080;
+    border-left: 4px solid var(--gold);
+    border-radius: 10px; padding: 18px 20px; margin: 20px 0;
+  }
+  .warn-box p { font-size: 0.83rem; color: #7a6020; font-weight: 300; line-height: 1.7; }
+
+  /* FORMS */
+  .form-card {
+    background: white;
+    border: 1px solid rgba(90,122,90,0.15);
+    border-radius: 16px; padding: 36px; margin-bottom: 32px;
+    position: relative;
+  }
+  .form-card-header {
+    display: flex; align-items: flex-start;
+    justify-content: space-between; gap: 16px; margin-bottom: 20px;
+  }
+  .form-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--sage-mist); border: 1px solid var(--sage-pale);
+    color: var(--sage); padding: 4px 12px; border-radius: 20px;
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; white-space: nowrap;
+  }
+  .form-badge.required {
+    background: #fff5f5; border-color: #fca5a5; color: var(--red);
+  }
+  .form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 600; color: var(--soil); margin-bottom: 8px;
+  }
+  .form-desc {
+    font-size: 0.83rem; color: var(--bark-light); font-weight: 300; line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  /* FORM FIELDS */
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .form-row.thirds { grid-template-columns: 1fr 1fr 1fr; }
+  .form-row.full { grid-template-columns: 1fr; }
+  .form-group { display: flex; flex-direction: column; gap: 5px; }
+  .form-label {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--bark);
+  }
+  .form-label .req { color: var(--red); margin-left: 2px; }
+  .form-input, .form-select, .form-textarea {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem; font-weight: 300;
+    padding: 10px 14px; border-radius: 8px;
+    border: 1px solid rgba(90,122,90,0.25);
+    background: var(--cream); color: var(--soil);
+    outline: none; transition: border-color 0.2s;
+    width: 100%;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--sage);
+    background: white;
+  }
+  .form-textarea { resize: vertical; min-height: 80px; line-height: 1.6; }
+
+  .form-divider { height: 1px; background: rgba(90,122,90,0.1); margin: 24px 0; }
+
+  .legal-text {
+    background: var(--cream); border-radius: 10px; padding: 20px;
+    font-size: 0.8rem; color: var(--bark-light); font-weight: 300; line-height: 1.75;
+    max-height: 200px; overflow-y: auto; margin-bottom: 20px;
+    border: 1px solid rgba(90,122,90,0.12);
+  }
+  .legal-text p { margin-bottom: 10px; }
+  .legal-text p:last-child { margin-bottom: 0; }
+  .legal-text strong { font-weight: 500; color: var(--bark); }
+
+  .sig-row {
+    display: grid; grid-template-columns: 1fr 160px; gap: 16px;
+    align-items: end; margin-top: 20px;
+  }
+  .sig-box {
+    border: 1px solid rgba(90,122,90,0.25); border-radius: 8px;
+    background: var(--cream); min-height: 60px; padding: 10px 14px;
+    font-size: 0.78rem; color: var(--bark-light); font-weight: 300;
+    display: flex; align-items: flex-end;
+    font-style: italic;
+  }
+
+  /* CHECKBOX */
+  .check-group { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
+  .check-group input[type="checkbox"] {
+    width: 18px; height: 18px; accent-color: var(--sage);
+    margin-top: 2px; flex-shrink: 0; cursor: pointer;
+  }
+  .check-label {
+    font-size: 0.85rem; color: var(--bark); font-weight: 300; line-height: 1.6;
+    cursor: pointer;
+  }
+  .check-label strong { font-weight: 500; }
+
+  /* RADIO */
+  .radio-group { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+  .radio-opt {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.85rem; color: var(--bark); font-weight: 300; cursor: pointer;
+  }
+  .radio-opt input[type="radio"] { accent-color: var(--sage); cursor: pointer; }
+
+  /* SUBMIT BTN */
+  .form-submit {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--sage); color: white;
+    padding: 13px 28px; border-radius: 40px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem; font-weight: 500;
+    border: none; cursor: pointer; transition: all 0.2s; margin-top: 8px;
+  }
+  .form-submit:hover { background: var(--bark); transform: translateY(-1px); }
+  .form-note { font-size: 0.75rem; color: var(--bark-light); font-weight: 300; margin-top: 10px; font-style: italic; }
+
+  /* PRINT NOTICE */
+  .print-notice {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--cream-dark); border-radius: 10px; padding: 14px 18px;
+    margin-bottom: 32px; font-size: 0.82rem; color: var(--bark); font-weight: 400;
+  }
+
+  /* CONTACT BLOCK */
+  .contact-block {
+    background: var(--soil); color: white;
+    border-radius: 16px; padding: 32px; margin-top: 40px;
+    display: flex; gap: 32px; align-items: center; flex-wrap: wrap;
+  }
+  .contact-block-text { flex: 1; }
+  .contact-block-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 400; margin-bottom: 6px;
+  }
+  .contact-block-sub { font-size: 0.83rem; color: rgba(255,255,255,0.6); font-weight: 300; }
+  .contact-block-links { display: flex; flex-direction: column; gap: 8px; }
+  .contact-link {
+    display: flex; align-items: center; gap: 8px;
+    color: var(--sage-pale); font-size: 0.88rem; font-weight: 400;
+    text-decoration: none; transition: color 0.2s;
+  }
+  .contact-link:hover { color: white; }
+
+  /* FOOTER */
+  footer {
+    background: var(--cream); border-top: 1px solid rgba(90,122,90,0.1);
+    padding: 32px 80px; text-align: center;
+    font-size: 0.78rem; color: var(--bark-light); font-weight: 300; line-height: 1.7;
+  }
+  footer a { color: var(--sage); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .page-header { padding: 110px 24px 48px; }
+    .page-body { grid-template-columns: 1fr; padding: 40px 24px 80px; }
+    .toc { display: none; }
+    .content { padding-left: 0; }
+    footer { padding: 24px; }
+    .form-row { grid-template-columns: 1fr; }
+    .form-row.thirds { grid-template-columns: 1fr; }
+    .sig-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="psychiatree-website.html" class="nav-logo">
+    <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
+      <circle cx="14" cy="9" r="6" fill="#5a7a5a" opacity="0.4"/>
+      <circle cx="14" cy="7" r="4" fill="#5a7a5a"/>
+      <rect x="12.5" y="15" width="3" height="8" rx="1.5" fill="#8c7256"/>
+    </svg>
+    PsychiaTree
+  </a>
+  <a href="psychiatree-website.html" class="nav-back">
+    ← Back to main site
+  </a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <p class="page-eyebrow">Legal & Patient Documents</p>
+    <h1 class="page-title">Privacy Policy &amp; <em>Patient Forms</em></h1>
+    <p class="page-sub">
+      Your privacy is our priority. This page contains our Notice of Privacy Practices, Privacy Policy, and required patient consent forms — all compliant with HIPAA and New Jersey state law.
+    </p>
+    <div class="effective-date">
+      ⚖ Effective Date: January 1, 2025 &nbsp;·&nbsp; Revised: May 2025
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="page-body">
+
+  <!-- SIDEBAR TOC -->
+  <aside class="toc">
+    <p class="toc-label">On this page</p>
+    <ul class="toc-list">
+      <span class="toc-group">Policies</span>
+      <li><a href="#hipaa">HIPAA Notice of Privacy Practices</a></li>
+      <li><a href="#privacy">Website Privacy Policy</a></li>
+      <li><a href="#nj-rights">Your NJ Patient Rights</a></li>
+      <span class="toc-group">Patient Forms</span>
+      <li><a href="#form-consent-treatment">Consent for Treatment</a></li>
+      <li><a href="#form-telehealth">Telehealth Consent</a></li>
+      <li><a href="#form-roi">Release of Information</a></li>
+      <li><a href="#form-financial">Financial Agreement</a></li>
+      <li><a href="#form-emergency">Emergency Contact</a></li>
+      <li><a href="#form-communication">Communication Consent</a></li>
+      <span class="toc-group">Policies</span>
+      <li><a href="#communication-policy">Communication Policy</a></li>
+      <span class="toc-group">Contact</span>
+      <li><a href="#privacy-officer">Privacy Officer</a></li>
+    </ul>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- ══ HIPAA NOTICE ══ -->
+    <section class="doc-section" id="hipaa">
+      <p class="section-eyebrow">Federal Law · 45 CFR Parts 160 &amp; 164</p>
+      <h2 class="section-heading">HIPAA Notice of <em>Privacy Practices</em></h2>
+      <div class="section-divider"></div>
+
+      <div class="info-box">
+        <p class="info-box-title">THIS NOTICE DESCRIBES HOW MEDICAL INFORMATION ABOUT YOU MAY BE USED AND DISCLOSED AND HOW YOU CAN GET ACCESS TO THIS INFORMATION. PLEASE REVIEW IT CAREFULLY.</p>
+        <p>We are required by law to maintain the privacy of your protected health information (PHI), provide you with this Notice of Privacy Practices, and follow the terms of the notice currently in effect.</p>
+      </div>
+
+      <div class="doc-subheading">Who We Are</div>
+      <p class="doc-text">PsychiaTree is a psychiatric mental health practice operated by a board-certified Psychiatric Mental Health Nurse Practitioner and Family Nurse Practitioner licensed in the State of New Jersey. This notice applies to all protected health information created, maintained, or received in connection with your care at PsychiaTree.</p>
+
+      <div class="doc-subheading">How We May Use and Disclose Your Health Information</div>
+      <p class="doc-text">We may use and disclose your protected health information (PHI) without your authorization for the following purposes:</p>
+      <ul class="doc-list">
+        <li><strong>Treatment:</strong> To provide, coordinate, and manage your psychiatric care, including sharing information with other healthcare providers involved in your treatment (e.g., your primary care physician, specialists, pharmacists) with your knowledge.</li>
+        <li><strong>Payment:</strong> To bill and collect payment for your care, including submitting claims to your insurance company or health plan (e.g., through Headway or other billing platforms).</li>
+        <li><strong>Healthcare Operations:</strong> For internal activities such as quality assessment, practice management, training, and compliance audits.</li>
+        <li><strong>Required by Law:</strong> When required by federal, state, or local law, including mandatory reporting obligations.</li>
+        <li><strong>Public Health Activities:</strong> To report certain communicable diseases, adverse drug reactions, or abuse/neglect as required by law.</li>
+        <li><strong>Serious Threats to Health or Safety:</strong> If we believe disclosure is necessary to prevent a serious and imminent threat to your health or safety, or the health and safety of another person.</li>
+        <li><strong>Workers' Compensation:</strong> As authorized by and necessary to comply with workers' compensation laws.</li>
+      </ul>
+
+      <div class="doc-subheading">Special Protections for Mental Health Information (New Jersey Law)</div>
+      <p class="doc-text">New Jersey law provides <strong>additional protections</strong> for mental health records beyond federal HIPAA requirements. Under the New Jersey Mental Health Records Law (N.J.S.A. 30:4-24.3) and the New Jersey Confidentiality of Mental Health Records Act:</p>
+      <ul class="doc-list">
+        <li>Psychiatric treatment records are afforded heightened confidentiality protections.</li>
+        <li>Disclosure of mental health records generally requires your <strong>specific written authorization</strong> beyond standard HIPAA authorization — even for disclosures that HIPAA would otherwise permit without consent.</li>
+        <li>Psychotherapy notes (process notes) are kept separate from your general medical record and are protected by an additional layer of authorization requirements.</li>
+        <li>Your mental health information may not be disclosed to employers, law enforcement, or family members without your written consent, except as required by law or to prevent imminent harm.</li>
+        <li>Under N.J.A.C. 13:35-6.5 (governing APRNs), your records must be maintained for a minimum of 7 years from the date of the last patient encounter, or until the patient's 23rd birthday if the patient is a minor.</li>
+      </ul>
+
+      <div class="doc-subheading">Uses and Disclosures Requiring Your Written Authorization</div>
+      <p class="doc-text">We will obtain your written authorization before using or disclosing your PHI for purposes beyond treatment, payment, and operations, including:</p>
+      <ul class="doc-list">
+        <li>Most disclosures of psychotherapy notes</li>
+        <li>Marketing communications</li>
+        <li>Sale of your health information</li>
+        <li>Disclosure to family members, friends, or others not directly involved in your care</li>
+        <li>Disclosure to your employer or school</li>
+        <li>Disclosure to attorneys or for legal proceedings (except as required by court order)</li>
+      </ul>
+      <p class="doc-text">You have the right to revoke any authorization you provide, in writing, at any time — except to the extent we have already relied on it.</p>
+
+      <div class="doc-subheading">Limits on Disclosure: Minors</div>
+      <p class="doc-text">New Jersey law (N.J.S.A. 9:17A-4) permits minors aged 16 and older to consent to outpatient mental health treatment without parental consent. In such cases, we will generally not disclose the minor's treatment information to parents or guardians without the minor's consent, except where required by law or when the minor's safety is at risk.</p>
+
+      <div class="doc-subheading">Mandated Reporting Obligations</div>
+      <p class="doc-text">As licensed healthcare providers in New Jersey, we are <strong>mandatory reporters</strong> under the following circumstances, which may require disclosure of your information without your consent:</p>
+      <ul class="doc-list">
+        <li><strong>Child Abuse and Neglect:</strong> N.J.S.A. 9:6-8.10 — any reasonable suspicion of child abuse or neglect must be reported to the New Jersey Division of Child Protection and Permanency (DCPP).</li>
+        <li><strong>Elder and Vulnerable Adult Abuse:</strong> N.J.S.A. 52:27D-409 — suspected abuse, neglect, or exploitation of elderly or vulnerable adults must be reported to Adult Protective Services.</li>
+        <li><strong>Duty to Warn (Tarasoff Obligation):</strong> Under New Jersey's duty-to-protect statute (N.J.S.A. 2A:62A-16), if a patient communicates a serious threat of physical violence against an identifiable person or persons, we may be required to take reasonable steps to protect the intended victim, which may include warning the victim and/or notifying law enforcement.</li>
+        <li><strong>Imminent Danger to Self:</strong> If a patient poses an imminent risk of serious harm to themselves, we may initiate an involuntary commitment screening under the New Jersey Mental Health Code (N.J.S.A. 30:4-27.1 et seq.).</li>
+      </ul>
+
+      <div class="doc-subheading">Your Rights Regarding Your Health Information</div>
+      <ul class="doc-list">
+        <li><strong>Right to Access:</strong> You have the right to inspect and obtain a copy of your PHI. Requests must be made in writing. We may charge a reasonable fee for copies. Under N.J.S.A. 26:2H-12.8, we must respond within 30 days.</li>
+        <li><strong>Right to Amend:</strong> You may request amendments to your PHI if you believe it is inaccurate or incomplete.</li>
+        <li><strong>Right to an Accounting of Disclosures:</strong> You may request a list of disclosures of your PHI for the past 6 years (or shorter period if requested).</li>
+        <li><strong>Right to Request Restrictions:</strong> You may request that we restrict use or disclosure of your PHI, although we are not always required to agree.</li>
+        <li><strong>Right to Confidential Communications:</strong> You may request that we contact you only in specific ways or at specific locations.</li>
+        <li><strong>Right to a Paper Copy of This Notice:</strong> You may request a paper copy at any time.</li>
+        <li><strong>Right to File a Complaint:</strong> You may file a complaint with us or with the U.S. Department of Health and Human Services Office for Civil Rights if you believe your privacy rights have been violated. We will not retaliate against you for filing a complaint.</li>
+      </ul>
+
+      <div class="doc-subheading">How to Exercise Your Rights</div>
+      <p class="doc-text">To exercise any of the rights above, please submit a written request to:<br><br>
+        <strong>PsychiaTree Privacy Officer</strong><br>
+        Phone: <a href="tel:+1XXXXXXXXXX">[Phone Coming Soon]</a><br>
+        Email: privacy@psychiatree.com
+      </p>
+
+      <div class="doc-subheading">Changes to This Notice</div>
+      <p class="doc-text">We reserve the right to change this Notice and to make the revised or changed Notice effective for health information we already have about you as well as any information we receive in the future. The current Notice will be posted on our website and available upon request.</p>
+    </section>
+
+    <!-- ══ WEBSITE PRIVACY POLICY ══ -->
+    <section class="doc-section" id="privacy">
+      <p class="section-eyebrow">Website &amp; Digital Services</p>
+      <h2 class="section-heading">Website <em>Privacy Policy</em></h2>
+      <div class="section-divider"></div>
+
+      <p class="doc-text">This Privacy Policy describes how PsychiaTree ("we," "us," or "our") collects, uses, and protects information gathered through our website (psychiatree.com) and any related digital communications.</p>
+
+      <div class="doc-subheading">Information We Collect</div>
+      <ul class="doc-list">
+        <li><strong>Contact Information:</strong> Name, email address, phone number, and any information you voluntarily submit through our contact or appointment request forms.</li>
+        <li><strong>Usage Data:</strong> Pages visited, time spent on pages, referring URLs, and browser/device type — collected via privacy-respecting analytics tools.</li>
+        <li><strong>Communications:</strong> Content of messages you send us via email, phone, or contact forms.</li>
+      </ul>
+
+      <div class="doc-subheading">How We Use Website Information</div>
+      <ul class="doc-list">
+        <li>To respond to appointment requests and inquiries</li>
+        <li>To communicate with prospective and current patients</li>
+        <li>To improve our website and services</li>
+        <li>To comply with legal obligations</li>
+      </ul>
+
+      <div class="doc-subheading">Important Notice: Website Contact is Not Secure</div>
+      <div class="warn-box">
+        <p><strong>Do not submit sensitive medical, psychiatric, or health information through this website's contact forms.</strong> Standard email and web forms are not HIPAA-secure. If you are an existing patient, please use your secure patient portal for all clinical communications. For general inquiries, please use the contact form on our main site.</p>
+      </div>
+
+      <div class="doc-subheading">Cookies and Tracking</div>
+      <p class="doc-text">Our website may use essential cookies necessary for basic site functionality. We do not use advertising or behavioral tracking cookies. We do not sell your data to third parties.</p>
+
+      <div class="doc-subheading">Third-Party Services</div>
+      <p class="doc-text">We use Headway for appointment scheduling and insurance billing. Their privacy practices are governed by <a href="https://headway.co/privacy" target="_blank">Headway's Privacy Policy</a>. We have a Business Associate Agreement (BAA) in place with Headway as required by HIPAA.</p>
+
+      <div class="doc-subheading">Retention</div>
+      <p class="doc-text">Website inquiry data is retained for up to 2 years unless you become a patient, in which case your information becomes part of your medical record and is retained per our medical records retention policy (minimum 7 years under New Jersey law).</p>
+    </section>
+
+    <!-- ══ NJ PATIENT RIGHTS ══ -->
+    <section class="doc-section" id="nj-rights">
+      <p class="section-eyebrow">New Jersey Law</p>
+      <h2 class="section-heading">Your New Jersey <em>Patient Rights</em></h2>
+      <div class="section-divider"></div>
+
+      <p class="doc-text">As a patient receiving care in New Jersey, you have the following rights under the New Jersey Patient Bill of Rights (N.J.S.A. 26:2H-12.8) and the New Jersey Mental Health Bill of Rights (N.J.A.C. 10:37-6.1 et seq.):</p>
+      <ul class="doc-list">
+        <li>The right to receive considerate, respectful, and dignified care regardless of age, race, ethnicity, religion, culture, gender, gender identity or expression, sexual orientation, disability, national origin, or source of payment.</li>
+        <li>The right to receive complete and current information concerning your diagnosis, treatment, and prognosis in terms you can reasonably understand.</li>
+        <li>The right to participate in decisions about your care, including the right to refuse treatment.</li>
+        <li>The right to be informed of all available treatment options and alternatives.</li>
+        <li>The right to give informed consent before treatment begins, including medication.</li>
+        <li>The right to have your medical records remain confidential and to control who may access them.</li>
+        <li>The right to access your own medical records within a reasonable time and at a reasonable cost.</li>
+        <li>The right to request a second opinion.</li>
+        <li>The right to receive an itemized bill and explanation of charges.</li>
+        <li>The right to file a complaint without fear of retaliation and to have it investigated.</li>
+        <li>The right to be treated in the least restrictive appropriate setting.</li>
+      </ul>
+
+      <div class="doc-subheading">How to File a Complaint</div>
+      <p class="doc-text">If you believe your rights have been violated, you may contact:</p>
+      <ul class="doc-list">
+        <li><strong>PsychiaTree Privacy Officer:</strong> [Phone Coming Soon] or privacy@psychiatree.com</li>
+        <li><strong>New Jersey Division of Consumer Affairs, State Board of Nursing:</strong> (973) 504-6430</li>
+        <li><strong>HHS Office for Civil Rights (HIPAA):</strong> <a href="https://www.hhs.gov/ocr/complaints" target="_blank">hhs.gov/ocr/complaints</a> or 1-800-368-1019</li>
+        <li><strong>New Jersey Department of Health:</strong> (609) 292-7837</li>
+      </ul>
+    </section>
+
+    <!-- ══ FORMS SECTION ══ -->
+    <section class="doc-section" id="forms">
+      <p class="section-eyebrow">Required Patient Forms</p>
+      <h2 class="section-heading">Patient <em>Consent Forms</em></h2>
+      <div class="section-divider"></div>
+
+      <div class="print-notice">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#8c7256" stroke-width="1.2"/><path d="M9 8v4M9 6h.01" stroke="#8c7256" stroke-width="1.4" stroke-linecap="round"/></svg>
+        These forms must be completed digitally before your first telehealth appointment. All forms are required prior to your initial visit — your provider reviews them before your session begins.
+      </div>
+
+      <!-- FORM 1: CONSENT FOR TREATMENT -->
+      <div class="form-card" id="form-consent-treatment">
+        <div class="form-card-header">
+          <div>
+            <div class="form-badge required">⚠ Required · New Patient</div>
+            <h3 class="form-title" style="margin-top:10px">Consent for Psychiatric Treatment</h3>
+          </div>
+        </div>
+        <p class="form-desc">This form provides your informed consent to receive psychiatric evaluation and treatment at PsychiaTree, including medication management and supportive therapy services. Please read carefully before signing.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Patient Full Legal Name <span class="req">*</span></label>
+            <input type="text" class="form-input" placeholder="First Middle Last">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date of Birth <span class="req">*</span></label>
+            <input type="date" class="form-input">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Preferred Name / Pronouns</label>
+            <input type="text" class="form-input" placeholder="e.g., Sam · he/him">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number <span class="req">*</span></label>
+            <input type="tel" class="form-input" placeholder="(   )    -    ">
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label class="form-label">Address <span class="req">*</span></label>
+            <input type="text" class="form-input" placeholder="Street address, City, State, ZIP">
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <p class="form-desc" style="margin-bottom:12px"><strong>If patient is a minor, parent/guardian information:</strong></p>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Parent / Guardian Name</label>
+            <input type="text" class="form-input" placeholder="Full legal name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Relationship to Patient</label>
+            <input type="text" class="form-input" placeholder="e.g., Mother, Legal Guardian">
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <div class="legal-text">
+          <p><strong>INFORMED CONSENT FOR PSYCHIATRIC TREATMENT</strong></p>
+          <p>I voluntarily consent to receive psychiatric evaluation, diagnosis, medication management, and/or supportive psychotherapy services from PsychiaTree and its providers. I understand the following:</p>
+          <p><strong>Nature of Treatment:</strong> Psychiatric care may include comprehensive evaluation, medication prescription and management, supportive therapy, and referral coordination. The specific treatments recommended will be discussed with me and I may ask questions at any time.</p>
+          <p><strong>Benefits and Risks:</strong> Psychiatric medications and treatments carry potential benefits and risks. These will be explained to me before any medication is prescribed. I understand that no outcome can be guaranteed, and that it may take time to find the most effective treatment for my needs.</p>
+          <p><strong>Alternative Treatments:</strong> I understand that alternatives to recommended treatments exist, including different medications, therapy-only approaches, or no treatment at all. I may discuss alternatives with my provider at any time.</p>
+          <p><strong>Voluntary Participation:</strong> My participation in treatment is voluntary. I may withdraw consent and discontinue treatment at any time without penalty, though I understand this may affect my care continuity. I will be provided with referrals as clinically appropriate.</p>
+          <p><strong>Confidentiality:</strong> My health information is protected as described in the Notice of Privacy Practices. I understand that certain disclosures are required by law (e.g., mandatory reporting of suspected child abuse, duty to warn of imminent threats to others).</p>
+          <p><strong>Records:</strong> My records will be maintained for a minimum of 7 years from the last date of service, or until my 23rd birthday if I am currently a minor, per New Jersey law (N.J.A.C. 13:35-6.5).</p>
+          <p><strong>Contact:</strong> I consent to receive appointment reminders and routine administrative communications by phone, voicemail, and/or secure messaging. I understand that I may opt out at any time.</p>
+          <p><strong>Fees:</strong> I understand that I am responsible for any fees not covered by my insurance, including copays, deductibles, and fees for missed appointments or late cancellations as described in the Financial Agreement.</p>
+          <p>By signing below, I confirm that I have read and understood the above, have had the opportunity to ask questions, and voluntarily consent to treatment at PsychiaTree.</p>
+        </div>
+
+        <div class="sig-row">
+          <div class="form-group">
+            <label class="form-label">Patient Signature (or Parent/Guardian if Minor) <span class="req">*</span></label>
+            <div class="sig-box">Type your full name to sign electronically</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date <span class="req">*</span></label>
+            <input type="date" class="form-input">
+          </div>
+        </div>
+        <p class="form-note">If signing on behalf of a minor, please type your full legal name and your relationship to the patient in the signature field.</p>
+        <button class="form-submit">Submit This Form ›</button>
+        <p class="form-note">Submission is encrypted. You will receive a confirmation. For questions, call [Phone Coming Soon].</p>
+      </div>
+
+      <!-- FORM 2: TELEHEALTH CONSENT -->
+      <div class="form-card" id="form-telehealth">
+        <div class="form-card-header">
+          <div>
+            <div class="form-badge required">⚠ Required · Telehealth Patients</div>
+            <h3 class="form-title" style="margin-top:10px">Informed Consent for Telehealth Services</h3>
+          </div>
+        </div>
+        <p class="form-desc">This form provides your consent to receive psychiatric services via telehealth (video or telephone). Please review the information below about how telehealth works, its benefits and limitations, and your rights.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Patient Name <span class="req">*</span></label>
+            <input type="text" class="form-input" placeholder="Full legal name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date of Birth <span class="req">*</span></label>
+            <input type="date" class="form-input">
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <div class="legal-text">
+          <p><strong>CONSENT FOR TELEHEALTH SERVICES — PsychiaTree</strong></p>
+          <p><strong>Definition:</strong> Telehealth involves the use of electronic communications — including secure video conferencing and telephone — to enable a healthcare provider to deliver clinical services to patients at a distance. PsychiaTree uses HIPAA-compliant platforms for all telehealth visits.</p>
+          <p><strong>Benefits:</strong> Telehealth allows me to receive psychiatric care from a location of my choosing, reduces travel time, and may increase access to care. It is particularly useful for medication management, follow-up visits, and supportive therapy.</p>
+          <p><strong>Risks and Limitations:</strong> Telehealth may not be appropriate for all clinical situations. In a telehealth session, the provider cannot perform a physical examination. Technical failures (poor connection, equipment malfunction) may interrupt or limit a session. In the event of a technical failure, my provider will attempt to contact me by phone to complete the session or reschedule.</p>
+          <p><strong>Privacy:</strong> I understand that I am responsible for ensuring that I am in a private location during my telehealth session. My provider will take reasonable steps to ensure that sessions are conducted in a private setting as well. Sessions will not be recorded without my express written consent.</p>
+          <p><strong>State Licensure:</strong> My provider is licensed in New Jersey. I understand that I must be physically located in a state where my provider is licensed at the time of each telehealth session. If I relocate, I will notify my provider so that my care can be appropriately managed.</p>
+          <p><strong>Emergency Protocol:</strong> Telehealth is not appropriate for psychiatric emergencies. If I am in crisis, I will call 988 (Suicide &amp; Crisis Lifeline), 911, or go to the nearest emergency room. I will provide my provider with a local emergency contact and my current physical address at the time of each session.</p>
+          <p><strong>Consent:</strong> I voluntarily consent to participate in telehealth services at PsychiaTree. I understand I may withdraw this consent at any time in writing and request in-person care or referral as appropriate.</p>
+        </div>
+
+        <div class="form-group" style="margin-bottom:16px">
+          <label class="form-label">My physical location at the time of telehealth visits will typically be: <span class="req">*</span></label>
+          <input type="text" class="form-input" placeholder="City and State (e.g., Newark, NJ)">
+        </div>
+        <div class="form-group" style="margin-bottom:16px">
+          <label class="form-label">Emergency contact name &amp; phone: <span class="req">*</span></label>
+          <input type="text" class="form-input" placeholder="Name — (   )    -    ">
+        </div>
+
+        <div class="check-group">
+          <input type="checkbox" id="tc1">
+          <label class="check-label" for="tc1">I have read and understand the above. I consent to telehealth services and understand its benefits, risks, and limitations.</label>
+        </div>
+        <div class="check-group">
+          <input type="checkbox" id="tc2">
+          <label class="check-label" for="tc2">I understand that I must be in a state where my provider holds an active license at the time of each session.</label>
+        </div>
+        <div class="check-group">
+          <input type="checkbox" id="tc3">
+          <label class="check-label" for="tc3">I understand that telehealth is not appropriate for emergencies and I have the crisis resources listed above.</label>
+        </div>
+
+        <div class="sig-row">
+          <div class="form-group">
+            <label class="form-label">Signature <span class="req">*</span></label>
+            <div class="sig-box">Type your full name to sign electronically</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date <span class="req">*</span></label>
+            <input type="date" class="form-input">
+          </div>
+        </div>
+        <button class="form-submit">Submit This Form ›</button>
+        <p class="form-note">Required for all telehealth visits. Questions? Call [Phone Coming Soon].</p>
+      </div>
+
+      <!-- FORM 3: RELEASE OF INFORMATION -->
+      <div class="form-card" id="form-roi">
+        <div class="form-card-header">
+          <div>
+            <div class="form-badge">As Needed</div>
+            <h3 class="form-title" style="margin-top:10px">Authorization to Release / Receive Medical Information</h3>
+          </div>
+        </div>
+        <p class="form-desc">This authorization allows PsychiaTree to share or receive your protected health information with another provider, facility, or individual you designate. A separate form is required for each release. <strong>This form is optional and only needed if you wish to coordinate care with another provider or authorize a third-party release.</strong></p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Patient Name <span class="req">*</span></label>
+            <input type="text" class="form-input" placeholder="Full legal name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date of Birth <span class="req">*</span></label>
+            <input type="date" class="form-input">
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+        <p style="font-size:0.82rem;font-weight:500;color:var(--bark);margin-bottom:14px">Authorize release TO or FROM:</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Name of Provider / Organization <span class="req">*</span></label>
+            <input type="text" class="form-input" placeholder="e.g., Dr. Jane Smith, ABC Medical Group">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Relationship / Role</label>
+            <input type="text" class="form-input" placeholder="e.g., Primary Care Physician, Therapist">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Address / Fax <span class="req">*</span></label>
+            <input type="text" class="form-input" placeholder="Address or secure fax number">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone</label>
+            <input type="tel" class="form-input" placeholder="(   )    -    ">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:16px">
+          <label class="form-label">Direction of this release: <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-opt"><input type="radio" name="roi_dir" value="to"> Release TO the provider above</label>
+            <label class="radio-opt"><input type="radio" name="roi_dir" value="from"> Receive FROM the provider above</label>
+            <label class="radio-opt"><input type="radio" name="roi_dir" value="both"> Both directions</label>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:16px">
+          <label class="form-label">Information to be released: <span class="req">*</span></label>
+          <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:6px">
+            <label class="radio-opt"><input type="checkbox"> Psychiatric evaluation / assessment</label>
+            <label class="radio-opt"><input type="checkbox"> Medication records</label>
+            <label class="radio-opt"><input type="checkbox"> Progress notes</label>
+            <label class="radio-opt"><input type="checkbox"> Diagnoses</label>
+            <label class="radio-opt"><input type="checkbox"> Treatment plan</label>
+            <label class="radio-opt"><input type="checkbox"> Lab results</label>
+            <label class="radio-opt"><input type="checkbox"> Entire medical record</label>
+            <label class="radio-opt"><input type="checkbox"> Other (specify below)</label>
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:16px">
+          <label class="form-label">Specify date range or other instructions</label>
+          <input type="text" class="form-input" placeholder="e.g., Records from Jan 2024–present; or 'Most recent evaluation only'">
+        </div>
+
+        <div class="form-group" style="margin-bottom:16px">
+          <label class="form-label">Purpose of this release: <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-opt"><input type="radio" name="roi_purpose"> Continuity of care / coordination with another provider</label>
+            <label class="radio-opt"><input type="radio" name="roi_purpose"> Personal copy</label>
+            <label class="radio-opt"><input type="radio" name="roi_purpose"> Legal / insurance</label>
+            <label class="radio-opt"><input type="radio" name="roi_purpose"> Other</label>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:16px">
+          <label class="form-label">Expiration of this authorization <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-opt"><input type="radio" name="roi_exp"> One year from the date signed</label>
+            <label class="radio-opt"><input type="radio" name="roi_exp"> One-time use only</label>
+            <label class="radio-opt"><input type="radio" name="roi_exp"> Specific date:</label>
+            <input type="date" class="form-input" style="max-width:160px">
+          </div>
+        </div>
+
+        <div class="legal-text" style="max-height:140px">
+          <p>I understand that: (1) I may revoke this authorization at any time by submitting a written revocation to PsychiaTree, except to the extent that action has already been taken in reliance upon it; (2) my treatment is not conditioned upon signing this form; (3) information disclosed pursuant to this authorization may be re-disclosed by the recipient and may no longer be protected by HIPAA, unless otherwise protected by state law; (4) under New Jersey law, mental health and substance abuse records are afforded heightened protections and I am specifically authorizing the release of such records if checked above (N.J.S.A. 30:4-24.3).</p>
+        </div>
+
+        <div class="sig-row">
+          <div class="form-group">
+            <label class="form-label">Patient Signature <span class="req">*</span></label>
+            <div class="sig-box">Type your full name to sign electronically</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date <span class="req">*</span></label>
+            <input type="date" class="form-input">
+          </div>
+        </div>
+        <button class="form-submit">Submit This Form ›</button>
+      </div>
+
+      <!-- FORM 4: FINANCIAL AGREEMENT -->
+      <div class="form-card" id="form-financial">
+        <div class="form-card-header">
+          <div>
+            <div class="form-badge required">⚠ Required · All Patients</div>
+            <h3 class="form-title" style="margin-top:10px">Financial Agreement &amp; Billing Authorization</h3>
+          </div>
+        </div>
+        <p class="form-desc">This form outlines your financial responsibilities as a patient at PsychiaTree and authorizes us to bill your insurance on your behalf.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Patient Name <span class="req">*</span></label>
+            <input type="text" class="form-input" placeholder="Full legal name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date of Birth <span class="req">*</span></label>
+            <input type="date" class="form-input">
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+        <p style="font-size:0.82rem;font-weight:500;color:var(--bark);margin-bottom:14px">Insurance Information</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Insurance Carrier <span class="req">*</span></label>
+            <input type="text" class="form-input" placeholder="e.g., Aetna, Horizon BCBS">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Member ID <span class="req">*</span></label>
+            <input type="text" class="form-input" placeholder="As shown on insurance card">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Group Number</label>
+            <input type="text" class="form-input" placeholder="If applicable">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Policyholder Name (if not patient)</label>
+            <input type="text" class="form-input" placeholder="Name on policy">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:16px">
+          <label class="form-label">Secondary Insurance?</label>
+          <div class="radio-group">
+            <label class="radio-opt"><input type="radio" name="sec_ins"> Yes</label>
+            <label class="radio-opt"><input type="radio" name="sec_ins"> No</label>
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <div class="legal-text" style="max-height:220px">
+          <p><strong>FINANCIAL AGREEMENT — PsychiaTree</strong></p>
+          <p><strong>Insurance Billing:</strong> I authorize PsychiaTree to bill my insurance carrier(s) on my behalf for services rendered. I authorize the release of any medical information necessary to process my claim. I understand that insurance coverage is an agreement between me and my insurer, and that PsychiaTree cannot guarantee how my insurer will adjudicate any claim.</p>
+          <p><strong>Patient Responsibility:</strong> I agree to pay all amounts not covered by my insurance, including copays, coinsurance, deductibles, and any non-covered services. Copays are due at the time of service. Outstanding balances are due within 30 days of billing.</p>
+          <p><strong>Self-Pay:</strong> If I am uninsured or choose to pay out of pocket, I agree to pay the agreed self-pay rate at the time of service. Good Faith Estimates are available upon request under the No Surprises Act (45 CFR Part 149).</p>
+          <p><strong>Cancellation &amp; No-Show Policy:</strong> I understand that cancellations must be made at least 24 hours in advance. Late cancellations (under 24 hours) and no-shows may result in a fee of $75, which is not billable to insurance. This fee is the patient's responsibility. Repeated no-shows may affect my ability to continue care at PsychiaTree.</p>
+          <p><strong>Collections:</strong> In the event of an unpaid balance, PsychiaTree reserves the right to engage a collections process. Patients will be notified in writing before any account is sent to a collections agency.</p>
+          <p><strong>Assignment of Benefits:</strong> I assign to PsychiaTree the right to receive payment directly from my insurance company for services rendered.</p>
+        </div>
+
+        <div class="check-group">
+          <input type="checkbox" id="fin1">
+          <label class="check-label" for="fin1">I authorize PsychiaTree to bill my insurance on my behalf and understand my financial responsibilities as described above.</label>
+        </div>
+        <div class="check-group">
+          <input type="checkbox" id="fin2">
+          <label class="check-label" for="fin2">I understand the 24-hour cancellation policy and the potential fee for late cancellations and no-shows.</label>
+        </div>
+
+        <div class="sig-row">
+          <div class="form-group">
+            <label class="form-label">Patient / Responsible Party Signature <span class="req">*</span></label>
+            <div class="sig-box">Type your full name to sign electronically</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date <span class="req">*</span></label>
+            <input type="date" class="form-input">
+          </div>
+        </div>
+        <button class="form-submit">Submit This Form ›</button>
+      </div>
+
+      <!-- FORM 5: EMERGENCY CONTACT -->
+      <div class="form-card" id="form-emergency">
+        <div class="form-card-header">
+          <div>
+            <div class="form-badge required">⚠ Required · All Patients</div>
+            <h3 class="form-title" style="margin-top:10px">Emergency Contact &amp; Safety Planning</h3>
+          </div>
+        </div>
+        <p class="form-desc">In the event of a psychiatric emergency or a situation in which we are unable to reach you, we may need to contact someone on your behalf. Please provide at least one emergency contact below.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Patient Name <span class="req">*</span></label>
+            <input type="text" class="form-input" placeholder="Full legal name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date of Birth <span class="req">*</span></label>
+            <input type="date" class="form-input">
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+        <p style="font-size:0.82rem;font-weight:500;color:var(--bark);margin-bottom:14px">Emergency Contact #1</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Name <span class="req">*</span></label>
+            <input type="text" class="form-input" placeholder="Full name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Relationship <span class="req">*</span></label>
+            <input type="text" class="form-input" placeholder="e.g., Spouse, Parent, Friend">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Phone <span class="req">*</span></label>
+            <input type="tel" class="form-input" placeholder="(   )    -    ">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Alternate Phone</label>
+            <input type="tel" class="form-input" placeholder="(   )    -    ">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:20px">
+          <label class="form-label">Authorization: In what circumstances may we contact this person? <span class="req">*</span></label>
+          <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:6px">
+            <label class="radio-opt"><input type="checkbox"> Emergency situations only</label>
+            <label class="radio-opt"><input type="checkbox"> Scheduling and appointment reminders</label>
+            <label class="radio-opt"><input type="checkbox"> Billing questions</label>
+            <label class="radio-opt"><input type="checkbox"> General care coordination</label>
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+        <p style="font-size:0.82rem;font-weight:500;color:var(--bark);margin-bottom:14px">Emergency Contact #2 (optional)</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-input" placeholder="Full name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Relationship</label>
+            <input type="text" class="form-input" placeholder="e.g., Sibling, Close friend">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Phone</label>
+            <input type="tel" class="form-input" placeholder="(   )    -    ">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" placeholder="email@example.com">
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+        <p style="font-size:0.82rem;font-weight:500;color:var(--bark);margin-bottom:14px">Safety Resources Acknowledgment</p>
+
+        <div class="info-box">
+          <p class="info-box-title">Crisis Resources — Please save these</p>
+          <p><strong>988 Suicide &amp; Crisis Lifeline:</strong> Call or text 988 (24/7)<br>
+          <strong>Crisis Text Line:</strong> Text HOME to 741741<br>
+          <strong>NJ Mental Health Cares Helpline:</strong> 1-866-202-HELP (4357)<br>
+          <strong>Emergency:</strong> 911 or your nearest emergency room</p>
+        </div>
+
+        <div class="check-group">
+          <input type="checkbox" id="em1">
+          <label class="check-label" for="em1">I have reviewed the crisis resources above and know how to access emergency mental health services if needed.</label>
+        </div>
+        <div class="check-group">
+          <input type="checkbox" id="em2">
+          <label class="check-label" for="em2">I authorize PsychiaTree to contact my emergency contacts in the situations I have indicated above, which may involve sharing limited health information as necessary to address a safety concern.</label>
+        </div>
+
+        <div class="form-group" style="margin:16px 0">
+          <label class="form-label">Is there anything your provider should know in the event of a psychiatric emergency? (Optional)</label>
+          <textarea class="form-textarea" placeholder="e.g., specific fears, preferred hospital, any important medical history relevant to emergencies..."></textarea>
+        </div>
+
+        <div class="sig-row">
+          <div class="form-group">
+            <label class="form-label">Patient Signature <span class="req">*</span></label>
+            <div class="sig-box">Type your full name to sign electronically</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date <span class="req">*</span></label>
+            <input type="date" class="form-input">
+          </div>
+        </div>
+        <button class="form-submit">Submit This Form ›</button>
+        <p class="form-note">Your emergency contacts will not be shared with anyone outside PsychiaTree except as authorized above or as required by law.</p>
+      </div>
+
+      <!-- FORM 6: COMMUNICATION CONSENT -->
+      <div class="form-card" id="form-communication">
+        <div class="form-card-header">
+          <div>
+            <div class="form-badge required">⚠ Required · All Patients</div>
+            <h3 class="form-title" style="margin-top:10px">Communication Consent & Preferences</h3>
+          </div>
+        </div>
+        <p class="form-desc">
+          At PsychiaTree, protecting your privacy is a priority in every aspect of your care — including how we communicate with you. Please read the information below carefully and indicate your preferences.
+        </p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Patient Name <span class="req">*</span></label>
+            <input type="text" class="form-input" placeholder="Full legal name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date of Birth <span class="req">*</span></label>
+            <input type="date" class="form-input">
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <div class="info-box" style="margin-bottom:20px">
+          <p class="info-box-title">📱 Secure Messaging via Spruce Health</p>
+          <p>PsychiaTree uses <strong>Spruce Health</strong>, a HIPAA-compliant secure messaging platform, for all clinical communications. Spruce is <strong>free to download</strong> on iOS and Android. You will be invited to create an account before your first appointment.</p>
+          <p style="margin-top:8px">All communications involving your health information — including medication questions, clinical concerns, lab results, and treatment discussions — will take place exclusively through Spruce.</p>
+        </div>
+
+        <div class="legal-text">
+          <p><strong>UNDERSTANDING YOUR COMMUNICATION OPTIONS</strong></p>
+
+          <p><strong>Secure Messaging (Spruce Health) — Recommended for all clinical communication</strong><br>
+          Spruce is a HIPAA-compliant platform that encrypts all messages end-to-end, meaning only you and your provider can read them. It is specifically designed for healthcare communication and protects your protected health information (PHI) in compliance with federal law. All medication discussions, clinical questions, and sensitive health information will be sent through Spruce only.</p>
+
+          <p><strong>Standard SMS (Text Message) — Administrative use only</strong><br>
+          Standard SMS text messages are <em>not encrypted</em> and are <em>not HIPAA-compliant</em>. While convenient for brief administrative reminders, SMS carries real privacy risks: messages can be intercepted, stored by mobile carriers, or accessed by others who have access to your device. For this reason, PsychiaTree uses standard SMS only for non-clinical, administrative purposes — such as appointment reminders, a prompt to log into Spruce, or a note that a secure message has been sent.</p>
+
+          <p><strong>Examples of SMS use (administrative only):</strong></p>
+          <p>· "Your appointment is tomorrow at 3:00 PM."<br>
+          · "Please log into Spruce — I've sent you a secure message."<br>
+          · "Your next appointment is available to schedule."</p>
+
+          <p><strong>Examples of Spruce use (all clinical content):</strong></p>
+          <p>· Medication questions, side effects, or refill requests<br>
+          · Clinical updates, lab results, or care plan discussions<br>
+          · Any message that includes your diagnosis, symptoms, or treatment details</p>
+
+          <p><strong>Risk Acknowledgment:</strong> By consenting to receive standard SMS messages for administrative purposes, you acknowledge that standard text messages are not fully secure and that there is a risk that your information could be accessed by a third party. PsychiaTree will never send clinical or sensitive health information via SMS.</p>
+
+          <p><strong>Email:</strong> Standard email is also not HIPAA-compliant and will not be used for clinical communication. Administrative emails (such as intake links or appointment confirmations) may be sent from a secure platform.</p>
+
+          <p>You may withdraw consent for SMS at any time by notifying PsychiaTree through Spruce. Withdrawing SMS consent will not affect your access to care.</p>
+        </div>
+
+        <div class="form-divider"></div>
+        <p style="font-size:0.82rem;font-weight:500;color:var(--bark);margin-bottom:14px">Your Communication Preferences <span class="req">*</span></p>
+
+        <div class="check-group">
+          <input type="checkbox" id="comm1">
+          <label class="check-label" for="comm1"><strong>Spruce Health (Secure Messaging):</strong> I agree to download the free Spruce Health app and use it as my primary method of communication with PsychiaTree for all clinical matters, including medication questions and health information.</label>
+        </div>
+
+        <div class="check-group">
+          <input type="checkbox" id="comm2">
+          <label class="check-label" for="comm2"><strong>Standard SMS:</strong> I consent to receive non-clinical, administrative text messages from PsychiaTree (e.g., appointment reminders, prompts to check Spruce). I understand that standard SMS is not HIPAA-secure and accept the associated risks for administrative messages only.</label>
+        </div>
+
+        <div class="form-group" style="margin:16px 0">
+          <label class="form-label">Preferred phone number for SMS reminders <span class="req">*</span></label>
+          <input type="tel" class="form-input" placeholder="(   )    -    ">
+        </div>
+
+        <div class="form-group" style="margin-bottom:16px">
+          <label class="form-label">Best time to receive administrative reminders</label>
+          <div class="radio-group">
+            <label class="radio-opt"><input type="radio" name="sms_time"> Morning (8am–12pm)</label>
+            <label class="radio-opt"><input type="radio" name="sms_time"> Afternoon (12pm–5pm)</label>
+            <label class="radio-opt"><input type="radio" name="sms_time"> Evening (5pm–8pm)</label>
+            <label class="radio-opt"><input type="radio" name="sms_time"> Any time</label>
+          </div>
+        </div>
+
+        <div class="check-group">
+          <input type="checkbox" id="comm3">
+          <label class="check-label" for="comm3">I have read and understand the difference between secure messaging (Spruce) and standard SMS, including the privacy risks of SMS. I understand that all clinical communication will occur through Spruce only.</label>
+        </div>
+
+        <div class="sig-row">
+          <div class="form-group">
+            <label class="form-label">Patient Signature <span class="req">*</span></label>
+            <input type="text" class="form-input" placeholder="Type your full name to sign electronically">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date <span class="req">*</span></label>
+            <input type="date" class="form-input">
+          </div>
+        </div>
+        <button class="form-submit">Submit This Form ›</button>
+        <p class="form-note">You will receive a Spruce Health invitation at your registered contact before your first appointment. Download the app at no cost from the App Store or Google Play.</p>
+      </div>
+
+    </section><!-- end forms section -->
+
+    <!-- ══ COMMUNICATION POLICY ══ -->
+    <section class="doc-section" id="communication-policy">
+      <p class="section-eyebrow">Practice Policy</p>
+      <h2 class="section-heading">PsychiaTree <em>Communication Policy</em></h2>
+      <div class="section-divider"></div>
+
+      <p class="doc-text">
+        Clear communication supports safe, effective, and respectful care. The following policy outlines how PsychiaTree communicates with patients and what you can expect when you reach out. This policy applies to all patients and is effective from the date of your first appointment.
+      </p>
+
+      <div class="info-box">
+        <p class="info-box-title">Download Spruce Health — Free & Required</p>
+        <p>All clinical communication at PsychiaTree takes place through <strong>Spruce Health</strong>, a free HIPAA-compliant secure messaging app. Download it on <strong>iOS</strong> (App Store) or <strong>Android</strong> (Google Play) before your first appointment. You will receive an invitation to connect with your provider through the app.</p>
+      </div>
+
+      <div class="doc-subheading">1. Platform Use</div>
+      <ul class="doc-list">
+        <li><strong>Spruce Health (Secure Messaging):</strong> Used for all clinical communication, including medication questions and refill requests, clinical concerns and symptom updates, care plan discussions, and any message involving your protected health information (PHI).</li>
+        <li><strong>Standard SMS:</strong> Used for administrative purposes only — appointment reminders, prompts to check Spruce, and brief scheduling notifications. Clinical information will never be sent via SMS.</li>
+        <li><strong>Email:</strong> Not used for clinical communication. Administrative emails may be sent via secure platform only.</li>
+        <li><strong>Phone Calls:</strong> May be used for urgent clinical matters or follow-up at the provider's discretion. Voicemails will not contain clinical details.</li>
+      </ul>
+
+      <div class="doc-subheading">2. Response Times</div>
+      <p class="doc-text">PsychiaTree is a telehealth practice and Spruce is a non-urgent communication channel. Please allow the following response times for messages sent through Spruce:</p>
+      <ul class="doc-list">
+        <li><strong>General clinical questions and non-urgent messages:</strong> Response within 1–2 business days (Monday–Friday, excluding holidays).</li>
+        <li><strong>Medication refill requests:</strong> Please submit refill requests at least <strong>5–7 business days</strong> before your medication runs out. Refills are not guaranteed outside of scheduled appointments and are managed at the provider's clinical discretion.</li>
+        <li><strong>Scheduling and administrative requests:</strong> Response within 1–2 business days.</li>
+        <li><strong>After-hours messages:</strong> Messages received outside of business hours will be reviewed on the next business day. Spruce is not monitored 24/7.</li>
+      </ul>
+
+      <div class="warn-box">
+        <p><strong>⚠ Spruce is not a crisis service.</strong> If you are experiencing a psychiatric emergency, suicidal thoughts, or are in immediate danger, do not send a Spruce message and wait for a response. Please call <strong>988</strong> (Suicide & Crisis Lifeline), text HOME to <strong>741741</strong> (Crisis Text Line), call <strong>911</strong>, or go to your nearest emergency room immediately.</p>
+      </div>
+
+      <div class="doc-subheading">3. Crisis & Emergency Communication</div>
+      <ul class="doc-list">
+        <li>Spruce messaging is for <strong>non-urgent communication only</strong> and is not monitored in real time.</li>
+        <li>PsychiaTree does not provide crisis counseling, emergency psychiatric intervention, or after-hours urgent care via any messaging platform.</li>
+        <li>In any situation involving imminent risk to your safety or the safety of others, contact emergency services immediately.</li>
+        <li>If you are unsure whether your situation is an emergency, please call 988 or 911 — it is always better to seek support than to wait.</li>
+      </ul>
+
+      <div class="doc-subheading">4. Medication Refill Requests</div>
+      <ul class="doc-list">
+        <li>Refill requests must be submitted through <strong>Spruce only</strong> — not via SMS, voicemail, or pharmacy fax without prior arrangement.</li>
+        <li>Requests should be made at least <strong>5–7 business days</strong> before your current supply runs out.</li>
+        <li>Refills for controlled substances (e.g., stimulants for ADHD) require an up-to-date appointment and cannot be processed between visits without clinical review.</li>
+        <li>Refills are not automatic and are subject to clinical judgment. Regular follow-up appointments support timely and safe medication management.</li>
+      </ul>
+
+      <div class="doc-subheading">5. Scheduling</div>
+      <ul class="doc-list">
+        <li>Appointment scheduling and rescheduling can be managed through your patient portal or by messaging through Spruce.</li>
+        <li>Please provide at least <strong>24 hours' notice</strong> for cancellations. Late cancellations and no-shows may result in a fee as outlined in your Financial Agreement.</li>
+        <li>Appointment reminders will be sent via SMS and/or Spruce based on your stated preferences.</li>
+      </ul>
+
+      <div class="doc-subheading">6. Professional Boundaries in Messaging</div>
+      <ul class="doc-list">
+        <li>Spruce messages should be used for clinical and administrative communication related to your care at PsychiaTree.</li>
+        <li>Excessive, distressing, or inappropriate messaging may be addressed as part of your care, and boundaries will be maintained respectfully and professionally.</li>
+        <li>Your provider may not always be the one responding to administrative messages — a care coordinator or support staff may assist with scheduling and non-clinical matters.</li>
+      </ul>
+
+      <div class="doc-subheading">7. Acknowledgment</div>
+      <p class="doc-text">
+        By completing your intake forms and beginning care at PsychiaTree, you acknowledge that you have read and understand this Communication Policy. A copy is available to you at any time through this page or upon request through Spruce.
+      </p>
+      <p class="doc-text">
+        This policy may be updated periodically. Patients will be notified of material changes through Spruce or at their next appointment.
+      </p>
+
+    </section>
+
+    <!-- PRIVACY OFFICER CONTACT -->
+    <section class="doc-section" id="privacy-officer" style="border-bottom:none; margin-bottom:0; padding-bottom:0">
+      <p class="section-eyebrow">Questions &amp; Concerns</p>
+      <h2 class="section-heading">Contact Our <em>Privacy Officer</em></h2>
+      <div class="section-divider"></div>
+      <p class="doc-text">If you have questions about this policy, wish to exercise your rights, or would like to file a complaint, please reach out to our Privacy Officer:</p>
+      <div class="contact-block">
+        <div class="contact-block-text">
+          <div class="contact-block-title">PsychiaTree Privacy Officer</div>
+          <div class="contact-block-sub">We are committed to protecting your privacy and will respond to all inquiries within 5 business days.</div>
+        </div>
+        <div class="contact-block-links">
+          <a href="tel:+1XXXXXXXXXX" class="contact-link">📞 [Phone Coming Soon]</a>
+          <a href="mailto:privacy@psychiatree.com" class="contact-link">✉ privacy@psychiatree.com</a>
+          <a href="https://www.hhs.gov/ocr/complaints" target="_blank" class="contact-link">⚖ File with HHS OCR</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 PsychiaTree · New Jersey · [Phone Coming Soon]</p>
+  <p style="margin-top:8px">
+    <a href="psychiatree-website.html">← Back to main site</a> &nbsp;·&nbsp;
+    These documents do not constitute legal advice. PsychiaTree recommends that all healthcare practices consult with a qualified healthcare attorney for compliance review.
+  </p>
+  <p style="margin-top:8px; font-size:0.72rem; color:#aaa">
+    Compliant with HIPAA (45 CFR Parts 160 &amp; 164), N.J.S.A. 30:4-24.3, N.J.S.A. 26:2H-12.8, N.J.A.C. 13:35-6.5, and applicable New Jersey patient rights statutes.
+  </p>
+</footer>
+
+</body>
+</html>
